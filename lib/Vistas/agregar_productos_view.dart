@@ -17,6 +17,14 @@ class AgregarProductosView extends StatelessWidget{
            const SizedBox(
             height: 10,
            ),
+           const Text('Nombre'),
+           const SizedBox(
+            height: 10,
+           ),
+            const Text('Precio'),
+           const SizedBox(
+            height: 10,
+           ),
           ],
         ),
       ),

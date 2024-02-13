@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vistaventas/Vistas/agregar_productos_view.dart';
 import 'package:vistaventas/widgets/CustomButtonHome.dart';
 
 class HomeView extends StatelessWidget {
@@ -22,16 +23,16 @@ class HomeView extends StatelessWidget {
               name: 'Agregar Productos',
               color: Color.fromARGB(255, 253, 169, 58),
               onPressed: () {
-                /*Navigator.push(
+                Navigator.push(
                   context,
                  MaterialPageRoute(
                     builder: (context) {
                      return AgregarProductosView(
-                        productos: productos,
+                       
                      );
                     },
                   ),
-                );*/
+                );
               },
             ),
             const SizedBox(height: 20),
