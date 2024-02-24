@@ -16,7 +16,8 @@ class CustomButtonHome extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(40),
+          borderRadius: BorderRadius.circular(15
+          ),
         ),
         padding: const EdgeInsets.symmetric(
           horizontal: 30,
@@ -28,6 +29,7 @@ class CustomButtonHome extends StatelessWidget {
       child: Text(
         name,
         style: const TextStyle(
+          color:Colors.black,
           fontSize: 20,
           fontWeight: FontWeight.w400,
           letterSpacing: 2,
