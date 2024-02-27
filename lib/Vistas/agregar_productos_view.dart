@@ -25,6 +25,7 @@ class AgregarProductosView extends StatelessWidget{
         ),
         child: Text('Agregar Productos'),
       ),
+      backgroundColor: Color.fromARGB(255, 2, 73, 121),
     ),
       
       body:SingleChildScrollView(

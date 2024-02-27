@@ -14,6 +14,7 @@ class CompraDeProductosView extends StatelessWidget{
         ),
         child: Text('Compra de productos'),
       ),
+      backgroundColor: Color.fromARGB(255, 2, 73, 121),
     ),
       
       body:SingleChildScrollView(

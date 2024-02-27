@@ -25,6 +25,8 @@ class HomeView extends StatelessWidget {
         ),
         child: Text('Punto de venta'),
       ),
+      centerTitle: true,
+      backgroundColor: Color.fromARGB(255, 2, 73, 121),
     ),
       
       body: Center(
@@ -88,7 +90,7 @@ class HomeView extends StatelessWidget {
             ),
             const SizedBox(height: 20
             ),
-            CustomButtonHome(
+           CustomButtonHome(
               name: 'Test Hive',
               color: Colors.blue,
               onPressed: () {
