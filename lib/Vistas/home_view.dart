@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: Color.fromARGB(255, 241, 229, 112),
+    backgroundColor: const Color.fromARGB(255, 241, 229, 112),
     appBar: AppBar(title:const DefaultTextStyle(
         style: TextStyle(
           color: Colors.black,
@@ -26,26 +26,27 @@ class HomeView extends StatelessWidget {
         child: Text('Punto de venta'),
       ),
       centerTitle: true,
-      backgroundColor: Color.fromARGB(255, 2, 73, 121),
+      backgroundColor: const Color.fromARGB(255, 160, 108, 40),
     ),
       
-      body: Center(
+      body:SingleChildScrollView(
+        child:Center(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(height: 70
             ),
             CustomButtonHome(
               name: 'Agregar Productos',
-              color: Color.fromARGB(255, 160, 108, 40),
+              color: const Color.fromARGB(255, 160, 108, 40),
               onPressed: () {
                 Navigator.push(
                   context,
                  MaterialPageRoute(
                     builder: (context) {
                      return AgregarProductosView(
-                       //productos: [],//deberia ir productos: productos,--------------
-                       productos: productos,
+                      productos: productos,
                      );
                     },
                   ),
@@ -56,7 +57,7 @@ class HomeView extends StatelessWidget {
             ),
             CustomButtonHome(
               name: 'Mostrar Productos',
-              color: Color.fromARGB(255, 160, 108, 40),
+              color: const Color.fromARGB(255, 160, 108, 40),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -76,12 +77,12 @@ class HomeView extends StatelessWidget {
               name: 'Compra de productos',
               color: const Color.fromARGB(255, 160, 108, 40),
               onPressed: () {
-                Navigator.push(
+                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
                       return CompraDeProductosView(
-                       //productos: productos,
+                      // productos: productos,
                      );
                     },
                   ),
@@ -101,6 +102,7 @@ class HomeView extends StatelessWidget {
           ],
         ),
       ),
+     ),
     );
   }
 

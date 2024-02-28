@@ -21,7 +21,9 @@ class AgregarProductosControl{
 
         },
       );
-           //productos.detelete(key)
+         // productos.delete(ID);
+      
     }
+ 
    
 }

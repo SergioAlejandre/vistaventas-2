@@ -16,7 +16,7 @@ class AgregarProductosView extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: Color.fromARGB(255, 241, 229, 112),
+    backgroundColor: const Color.fromARGB(255, 241, 229, 112),
       appBar: AppBar(title:const DefaultTextStyle(
         style: TextStyle(
           color: Colors.black,
@@ -25,7 +25,7 @@ class AgregarProductosView extends StatelessWidget{
         ),
         child: Text('Agregar Productos'),
       ),
-      backgroundColor: Color.fromARGB(255, 2, 73, 121),
+      backgroundColor: const Color.fromARGB(255, 160, 108, 40),
     ),
       
       body:SingleChildScrollView(
@@ -34,6 +34,7 @@ class AgregarProductosView extends StatelessWidget{
           vertical: 30,
         ),
         child:Column(
+          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children :[
             const DefaultTextStyle(
@@ -49,8 +50,13 @@ class AgregarProductosView extends StatelessWidget{
            ),
            TextField(
                controller:idcontrol,
-               decoration: InputDecoration(
-               border: OutlineInputBorder(),
+               decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(25)
+                ),
+               ),
+               
               ),
             ),
             const SizedBox(
@@ -69,8 +75,12 @@ class AgregarProductosView extends StatelessWidget{
            ),
            TextField(
                 controller:nombrecontrol,
-                decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(25)
+                ),  
+                ),
               ),
             ),
             const SizedBox(
@@ -89,8 +99,11 @@ class AgregarProductosView extends StatelessWidget{
            ),
            TextField(
                 controller:preciocontrol,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                 border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                  Radius.circular(25)
+                ),
                 ),
               ),
             ),
@@ -101,22 +114,25 @@ class AgregarProductosView extends StatelessWidget{
               name: 'Agregar Producto',
               color: const Color.fromARGB(255, 160, 108, 40),
               onPressed: () {
-                /*Navigator.push(
-                  context,
-                 MaterialPageRoute(
-                    builder: (context) {
-                     return AgregarProductosView(
-                       
-                     );
-                    },
-                  ),
-                );*/
-                agregarProductosController.agregarProducto(
+                  agregarProductosController.agregarProducto(
                     ID: idcontrol.text,
                     Nombre: nombrecontrol.text,
                     Precio: preciocontrol.text,
                   );
-                  Navigator.pop(context);
+                  showDialog(context: context, builder: (context) {
+                    return AlertDialog(
+                      title: const Text('Producto agregado Correctamente'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text('Aceptar'),
+                        ),
+                      ],
+                    );
+                  });
+                  //Navigator.pop(context);
               },
             ),
             const SizedBox(
@@ -126,16 +142,10 @@ class AgregarProductosView extends StatelessWidget{
               name: 'Limpiar',
               color: const Color.fromARGB(255, 160, 108, 40),
               onPressed: () {
-                /*Navigator.push(
-                  context,
-                 MaterialPageRoute(
-                    builder: (context) {
-                     return AgregarProductosView(
-                       
-                     );
-                    },
-                  ),
-                );*/
+                idcontrol.clear();
+                nombrecontrol.clear();
+                preciocontrol.clear();
+               
               },
             ),
           ],

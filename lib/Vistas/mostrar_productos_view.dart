@@ -1,31 +1,21 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:vistaventas/modelos/producto_modelo.dart';
 import 'package:vistaventas/controladores/mostrar_productos_control.dart';
 
 class MostrarProductosView extends StatefulWidget{
- 
-  @override
+   @override
   mostrarProductosViewState createState() => mostrarProductosViewState();
- /* MostrarProductosView({
-    Key? key,
-    required this.productos,
-  }) : super(key: key);*/
   const MostrarProductosView({Key?key,required List<Producto> productos}) : super(key: key);
-
 }
 
 class mostrarProductosViewState extends State<MostrarProductosView>{
-  //final List<Producto> productos;
-  final MostrarProductosControl verProductosController =
+    final MostrarProductosControl verProductosController =
       MostrarProductosControl();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-    backgroundColor: const Color.fromARGB(255, 241, 229, 112),
+      backgroundColor: const Color.fromARGB(255, 241, 229, 112),
       appBar: AppBar(title:const DefaultTextStyle(
         style: TextStyle(
           color: Colors.black,
@@ -34,7 +24,7 @@ class mostrarProductosViewState extends State<MostrarProductosView>{
         ),
         child: Text('Mostrar Productos'),
       ),
-      backgroundColor: const Color.fromARGB(255, 2, 73, 121),
+      backgroundColor: const Color.fromARGB(255, 160, 108, 40),
     ),
       
       body:SingleChildScrollView(
@@ -60,14 +50,13 @@ class mostrarProductosViewState extends State<MostrarProductosView>{
                   leading: CircleAvatar(
                     child: Text(producto.ID),
                     foregroundColor: Colors.black,
-                    backgroundColor: const Color.fromARGB(255, 241, 229, 112),
+                    backgroundColor: const Color.fromARGB(255, 160, 108, 40),
                   ),
                   title: Text(producto.Nombre),
                   subtitle: Text(producto.Precio),
                   trailing:Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      
                       IconButton(
                         icon: const Icon(Icons.delete),
                         onPressed: () async{
@@ -76,6 +65,14 @@ class mostrarProductosViewState extends State<MostrarProductosView>{
                           setState((){});                          
                         },
                       ),
+                     /* IconButton(
+                        icon: const Icon(Icons.edit),
+                        onPressed: () async{
+                          var box=Hive.box('productos');
+                          await box.edit(producto.ID,producto); 
+                          setState((){});                          
+                        },
+                      ),*/
                     ],
                   ),
                   titleTextStyle: const TextStyle(
