@@ -5,6 +5,7 @@ class AgregarProductosControl{
     required String ID,
     required String Nombre,
     required String Precio,
+    required String Cantidad,
     }){
       //1.- validar datos de entrada
       
@@ -18,7 +19,7 @@ class AgregarProductosControl{
           'ID': ID,
           'Nombre': Nombre,
           'Precio': Precio,
-
+          'Cantidad': Cantidad,
         },
       );
          // productos.delete(ID);

@@ -4,7 +4,7 @@ class CustomButtonHome extends StatelessWidget {
   final String name;
   final Color color;
   final Function() onPressed;
-  const CustomButtonHome({
+  const CustomButtonHome( {
     super.key,
     required this.name,
     required this.color,

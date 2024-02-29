@@ -12,7 +12,9 @@ class MostrarProductosControl {
           Producto(
             ID: productos.getAt(i)['ID'],
             Nombre: productos.getAt(i)['Nombre'],
-            Precio: productos.getAt(i)['Precio'],  // deberia de ser -------double.parse(productos.getAt(i)['precio']),
+            Precio: productos.getAt(i)['Precio'],
+            Cantidad: productos.getAt(i)['Cantidad'],  
+            // deberia de ser -------double.parse(productos.getAt(i)['precio']),
           ),
         );
       }
@@ -20,6 +22,29 @@ class MostrarProductosControl {
     }
     return [];
   }
-    
+  void modificarProducto({
+    required String ID,
+    required String Nombre,
+    required String Precio,
+    required String Cantidad,
+    }){
+      //1.- validar datos de entrada
+      
+
+      //2.- guardar en la base de datos
+      var productos = Hive.box('productos');
+
+      productos.put(
+        ID,
+        {
+          'ID': ID,
+          'Nombre': Nombre,
+          'Precio': Precio,
+          'Cantidad': Cantidad,
+        },
+      );
+         // productos.delete(ID);
+      
+    }
 
 }

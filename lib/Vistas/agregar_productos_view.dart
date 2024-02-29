@@ -9,6 +9,7 @@ class AgregarProductosView extends StatelessWidget{
   final TextEditingController idcontrol = TextEditingController();
   final TextEditingController nombrecontrol = TextEditingController();
   final TextEditingController preciocontrol = TextEditingController();
+  final TextEditingController cantidadcontrol = TextEditingController();
   final AgregarProductosControl agregarProductosController =
       AgregarProductosControl();
   
@@ -110,6 +111,30 @@ class AgregarProductosView extends StatelessWidget{
             const SizedBox(
             height: 10,
            ),
+           const DefaultTextStyle(
+            style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            ),
+            child: Text('Cantidad'),
+           ),
+           const SizedBox(
+            height: 10,
+           ),
+           TextField(
+                controller:cantidadcontrol,
+                decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(25)
+                ),  
+                ),
+              ),
+            ),
+            const SizedBox(
+            height: 10,
+           ),
             CustomButtonHome(
               name: 'Agregar Producto',
               color: const Color.fromARGB(255, 160, 108, 40),
@@ -118,6 +143,7 @@ class AgregarProductosView extends StatelessWidget{
                     ID: idcontrol.text,
                     Nombre: nombrecontrol.text,
                     Precio: preciocontrol.text,
+                    Cantidad: cantidadcontrol.text,
                   );
                   showDialog(context: context, builder: (context) {
                     return AlertDialog(
@@ -145,7 +171,7 @@ class AgregarProductosView extends StatelessWidget{
                 idcontrol.clear();
                 nombrecontrol.clear();
                 preciocontrol.clear();
-               
+                cantidadcontrol.clear();
               },
             ),
           ],
