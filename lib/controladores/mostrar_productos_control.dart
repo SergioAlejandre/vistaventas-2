@@ -25,8 +25,8 @@ class MostrarProductosControl {
   void modificarProducto({
     required String ID,
     required String Nombre,
-    required String Precio,
-    required String Cantidad,
+    required double Precio,
+    required int Cantidad,
     }){
       //1.- validar datos de entrada
       

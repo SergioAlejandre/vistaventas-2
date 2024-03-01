@@ -41,12 +41,12 @@ class mostrarProductosViewState extends State<MostrarProductosView> {
           vertical: 0,
         ),
         child: Container(
-          color: Colors.white,
-          margin: const EdgeInsets.all(10),
+          //color: Colors.white,
+          margin: const EdgeInsets.all(0),
           foregroundDecoration: BoxDecoration(
             border: Border.all(
               color: Colors.black,
-              width: 2,
+              width: 5,
             ),
           ),
           child: Column(
@@ -62,7 +62,7 @@ class mostrarProductosViewState extends State<MostrarProductosView> {
                     ),
                     title: Text(producto.Nombre),
                     subtitle: Text(
-                        '${producto.Precio}€        Cantidad:${producto.Cantidad}'),
+                        '\$${producto.Precio}        Cantidad:${producto.Cantidad}'),
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -77,11 +77,13 @@ class mostrarProductosViewState extends State<MostrarProductosView> {
                         IconButton(
                           icon: const Icon(Icons.edit),
                           onPressed: () async {
-                            await showDialog<String>(
+                             await showDialog<String>(
+                              
                               context: context,
                               builder: (BuildContext context) => AlertDialog(
                                 title: const Text('Editar producto'),
-                                content: Column(
+                                content: SingleChildScrollView(
+                                child: Column(
                                   children: <Widget>[
                                     TextField(
                                       controller: idcontrol,
@@ -103,48 +105,47 @@ class mostrarProductosViewState extends State<MostrarProductosView> {
                                       decoration: const InputDecoration(
                                           hintText: "Nueva cantidad"),
                                     ),
+                                    const SizedBox(
+                                      height: 40,
+                                    ),
+                                    CustomButtonHome(
+                                      name: 'Realizar Cambios',
+                                      color: const Color.fromARGB(
+                                          255, 160, 108, 40),
+                                      onPressed: () {
+                                        editarProductosController
+                                            .modificarProducto(
+                                          ID: idcontrol.text,
+                                          Nombre: nombrecontrol.text,
+                                          Precio: double.parse(preciocontrol.text),
+                                          Cantidad: int.parse(cantidadcontrol.text),
+                                        );
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                    const SizedBox(
+                                      height: 40,
+                                    ),
+                                    CustomButtonHome(
+                                      name: 'Limpiar',
+                                      color: const Color.fromARGB(
+                                          255, 160, 108, 40),
+                                      onPressed: () {
+                                        idcontrol.clear();
+                                        nombrecontrol.clear();
+                                        preciocontrol.clear();
+                                        cantidadcontrol.clear();
+                                      },
+                                    ),
                                   ],
                                 ),
-                                actions: <Widget>[
-                                  CustomButtonHome(
-                                    name: 'Realizar Cambios',
-                                    color:
-                                        const Color.fromARGB(255, 160, 108, 40),
-                                    onPressed: () {
-                                      editarProductosController
-                                          .modificarProducto(
-                                        ID: idcontrol.text,
-                                        Nombre: nombrecontrol.text,
-                                        Precio: preciocontrol.text,
-                                        Cantidad: cantidadcontrol.text,
-                                      );
-                                      Navigator.pop(context);
-                                      showDialog(
-                                          context: context,
-                                          builder: (context) {
-                                            return AlertDialog(
-                                              title: const Text(
-                                                  'Producto Editado Correctamente'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: const Text('Aceptar'),
-                                                ),
-                                              ],
-                                            );
-                                          });
-                                      Navigator.pop(context);
-                                    },
-                                  ),
-
-                                ],
-                              ),
+                                ),
+                               ),
                             );
-                           setState(() {});
+                            setState(() {});
                           },
                         ),
+                        
                       ],
                     ),
                     titleTextStyle: const TextStyle(

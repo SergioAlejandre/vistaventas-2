@@ -1,8 +1,8 @@
 class Producto{
      String ID;
      String Nombre;
-     String Precio;
-     String Cantidad;
+     double Precio;
+     int Cantidad;
      Producto({
       required this.ID,
       required this.Nombre,

@@ -142,8 +142,8 @@ class AgregarProductosView extends StatelessWidget{
                   agregarProductosController.agregarProducto(
                     ID: idcontrol.text,
                     Nombre: nombrecontrol.text,
-                    Precio: preciocontrol.text,
-                    Cantidad: cantidadcontrol.text,
+                    Precio: double.parse(preciocontrol.text),
+                    Cantidad: int.parse(cantidadcontrol.text),
                   );
                   showDialog(context: context, builder: (context) {
                     return AlertDialog(
