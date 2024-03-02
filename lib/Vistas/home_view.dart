@@ -3,6 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:vistaventas/Vistas/agregar_productos_view.dart';
 import 'package:vistaventas/Vistas/compra_productos_view.dart';
 import 'package:vistaventas/Vistas/mostrar_productos_view.dart';
+import 'package:vistaventas/Vistas/productos_comprados_view.dart';
 import 'package:vistaventas/modelos/producto_modelo.dart';
 import 'package:vistaventas/widgets/CustomButtonHome.dart';
 
@@ -91,14 +92,26 @@ class HomeView extends StatelessWidget {
             ),
             const SizedBox(height: 20
             ),
-           CustomButtonHome(
+           /*CustomButtonHome(
               name: 'Test Hive',
               color: Colors.blue,
               onPressed: () {
                var productosBox = Hive.box('productos');
                 print('Productos: ${productosBox.values}');
               },
-            ),
+            ),*/
+           /* CustomButtonHome(
+              name: 'Productos Comprados',
+              color: const Color.fromARGB(255, 160, 108, 40),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductosCompradosView(),
+                  ),
+                );
+              },
+            ),*/
           ],
         ),
       ),
